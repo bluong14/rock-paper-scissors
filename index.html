@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function computerPlay() {
+            let choice = Math.floor(Math.random() * 3);
+            if (choice == 0) return "Rock";
+            else if (choice == 1) return "Paper";
+            else if (choice == 2) return "Scissors";
+            else return "Nothing";
+        }
+        // console.log(computerPlay());
+        // console.log(computerPlay());
+        // console.log(computerPlay());
+
+        function playRound(playerSelection, computerSelection) {
+            let p = playerSelection.toUpperCase();
+            let c = computerSelection.toUpperCase();
+            if (p === c) return "Tie: " + p;
+            if (p === "ROCK") {
+                if (c === "PAPER") return "You Lose! " + c + " beats " + p;
+                else return "You Win! " + p + " beats " + c;
+            }
+            else if (p === "PAPER") {
+                if (c === "SCISSORS") return "You Lose! " + c + " beats " + p;
+                else return "You Win! " + p + " beats " + c;
+            }
+            else if (p === "SCISSORS") {
+                if (c === "ROCK") return "You Lose! " + c + " beats " + p;
+                else return "You Win! " + p + " beats " + c;
+            }
+            else return "What is " + playerSelection + " ?";
+        }
+
+        // console.log(play("rOck", computerPlay()));
+        // console.log(play("PaPeR", computerPlay()));
+        // console.log(play("scissors", computerPlay()));
+
+        function game(){
+            let choice = undefined;
+            for (let i = 0; i < 5; i++) {
+                choice = prompt("Enter choice: ");
+                if (choice == null) break;
+                console.log(playRound(choice, computerPlay()));
+            }
+        }
+
+        game();
+    </script>
+</body>
+</html>
